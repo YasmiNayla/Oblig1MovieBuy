@@ -21,12 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
             isValid = false;
         }
 
-        if (!firstNameInput.value) {
+        const firstNameRegex = /^[a-zA-Z]+(\s[a-zA-Z]+)?$/;
+        if (!firstNameRegex.test(lastNameInput.value)) {
             document.getElementById("firstNameError").innerText = "Please enter your first name.";
             isValid = false;
         }
 
-        if (!lastNameInput.value) {
+        const lastNameRegex = /^[a-zA-Z]+(\s[a-zA-Z]+)?$/;
+        if (!lastNameRegex.test(lastNameInput.value)) {
             document.getElementById("lastNameError").innerText = "Please enter your last name.";
             isValid = false;
         }
@@ -71,7 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const ticketList = document.getElementById("ticketList");
         const listItem = document.createElement("li");
 
-        const ticketInfo = `Movie: ${ticket.movie}, Amount: ${ticket.amount}, FirstName: ${ticket.firstName}, LastName: ${ticket.lastName}, Phone: ${ticket.phone}, Email: ${ticket.email}`;
+        const ticketInfo = `Movie: ${ticket.movie},        
+                                    Amount: ${ticket.amount},
+                                    FirstName: ${ticket.firstName},     
+                                    LastName: ${ticket.lastName},
+                                    Phone: ${ticket.phone},
+                                    Email: ${ticket.email}`;
 
         listItem.textContent = ticketInfo;
         ticketList.appendChild(listItem);
@@ -97,12 +104,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
 
-    function isValidPhoneNumber(phone) {
+
+        function isValidEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+            return emailRegex.test(email);
+        }
+
+
+        function isValidPhoneNumber(phone) {
         const phoneRegex = /^\d{8}$/;
         return phoneRegex.test(phone);
     }
@@ -112,3 +122,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Event listener for the Remove All Tickets button
     document.getElementById("removeAllButton").addEventListener("click", removeAllTickets);
 });
+

@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Oblig1</title>
   <script def src="./index.js"></script>
 </head>
 
 <body>
-<h1>Ordering of Tickets</h1>
+<h1 style="color: lightcoral">Ordering of Cinema Tickets</h1>
 
 <label for="movieSelect">Select Movie:</label>
 <select id="movieSelect">
@@ -33,7 +32,7 @@
 
 <label for="lastNameInput">Last Name:</label>
 <input type="text" id="lastNameInput" required />
-<p id="lastNameError" class="error-message"></p>
+<p id="lastNameError" class="error-message" style></p>
 
 <label for="phoneInput">Phone Number:</label>
 <input type="tel" id="phoneInput" pattern="[0-9]{10}" required />
@@ -42,6 +41,25 @@
 <label for="emailInput">Email:</label>
 <input type="email" id="emailInput" required />
 <p id="emailError" class="error-message"></p>
+<script>
+
+  // Applied styling on error messages
+
+  const amountError = document.getElementById('amountError');
+  const firstNameError = document.getElementById('firstNameError');
+  const lastNameError = document.getElementById('lastNameError');
+  const phoneError = document.getElementById('phoneError');
+  const emailError = document.getElementById('emailError');
+
+  amountError.style.color = "rgb(128, 0, 0)";
+  firstNameError.style.color = "rgb(204, 0, 0)";
+  lastNameError.style.color = "rgb(245, 0, 0)";
+  phoneError.style.color = "rgb(255, 71, 71)";
+  emailError.style.color = "rgb(255, 112, 112)";
+
+  // Source palette: https://coolors.co/800000-cc0000-f50000-ff4747-ff7070
+
+</script>
 
 <button id="buyButton">Buy Ticket</button>
 
