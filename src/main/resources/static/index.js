@@ -17,27 +17,27 @@ document.addEventListener("DOMContentLoaded", function () {
         let isValid = true;
 
         if (amountInput.value < 1) {
-            document.getElementById("amountError").innerText = "<span style ='color rgb(128, 0, 0); font-size: 12px'>Amount must be at least 1.</span>";
+            document.getElementById("amountError").innerText = "Amount must be at least 1.";
             isValid = false;
         }
 
         if (!firstNameInput.value) {
-            document.getElementById("firstNameError").innerText = "<span style ='color rgb(204, 0, 0): ; font-size: 12px'>Please enter your first name.</span>";
+            document.getElementById("firstNameError").innerText = "Please enter your first name.";
             isValid = false;
         }
 
         if (!lastNameInput.value) {
-            document.getElementById("lastNameError").innerText = "<span style ='color rgb(245, 0, 0): ; font-size: 12px'>Please enter your last name.</span>";
+            document.getElementById("lastNameError").innerText = "Please enter your last name.";
             isValid = false;
         }
 
         if (!isValidPhoneNumber(phoneInput.value)) {
-            document.getElementById("phoneError").innerText = "<span style ='color rgb(255, 71, 71); font-size: 12px'>Please enter a valid 8-digit phone number.</span>";
+            document.getElementById("phoneError").innerText = "Please enter a valid 8-digit phone number.";
             isValid = false;
         }
 
         if (!isValidEmail(emailInput.value)) {
-            document.getElementById("emailError").innerText = "<span style ='color rgb(255, 112, 112); font-size: 12px'>Please enter a valid email address.</span>";
+            document.getElementById("emailError").innerText = "Please enter a valid email address.";
             isValid = false;
         }
 
@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         listItem.textContent = ticketInfo;
         ticketList.appendChild(listItem);
+        console.log(ticketInfo)
     }
 
     function removeAllTickets() {
